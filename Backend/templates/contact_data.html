@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">contact details</h4>
+<!--                    <p class="card-description"> Add class <code>.table-{color}</code>-->
+<!--                    </p>-->
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-danger ">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Number</th>
+                              <th>Message</th>
+
+                          </tr>
+                        </thead>
+
+                        <tbody class="table-info">
+
+                           {% for d in data %}
+<!--                        <tr>-->
+<!--                             <td>-->
+<!--                            <a href="{% url 'delete_contact' del_id=d.id %}">-->
+<!--                            <button type="button" class="btn btn-outline-success btn-icon-text">-->
+<!--                            <i class="mdi mdi-alert btn-icon-prepend"></i> Delete </button>-->
+<!--                            </a>-->
+<!--                        </td>-->
+
+                       <td>{{d.id}}</td>
+                        <td>{{d.CONTACTNAME}}</td>
+                         <td>{{d.CONTACTEMAIL}}</td>
+                             <td>{{d.CONTACTMESSAGE}}</td>
+
+                        <td>
+                            <a href="{% url 'delete_contact' del_id=d.id %}">
+                            <button type="button" class="btn btn-outline-success btn-icon-text">
+                            <i class="mdi mdi-alert btn-icon-prepend"></i> Delete </button>
+                            </a>
+                        </td>
+
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+
+</body>
+</html>
+{% endblock %}
